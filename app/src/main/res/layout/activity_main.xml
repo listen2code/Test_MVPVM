@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="data" type="com.listen.test_mvpvm.model.viewmodel.IMyDepositViewModel"/>
+        <variable name="presenter" type="com.listen.test_mvpvm.presenter.IMainPresenter"/>
+        <import type="android.view.View"/>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        tools:context="com.listen.test_mvpvm.view.MainActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@{data.title}"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="50dp"
+            android:text="@{data.money}"
+            android:textColor="@{data.moneyTextColorHightLight ? @android:color/holo_red_light : @android:color/darker_gray}"
+            android:textSize="@{data.moneyTextSizeLarge ? @dimen/sp_40 : @dimen/sp_30}"
+            android:visibility="@{data.moneyTextVisible ? View.VISIBLE : View.INVISIBLE}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{data.tips}"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:visibility="@{data.tipsVisible ? View.VISIBLE : View.INVISIBLE}"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="100dp"
+            android:onClick="@{presenter.onButtonClickAction}"
+            android:text="@{data.buttonText}"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            android:visibility="@{data.buttonVisible ? View.VISIBLE : View.INVISIBLE}"/>
+    </LinearLayout>
+</layout>
