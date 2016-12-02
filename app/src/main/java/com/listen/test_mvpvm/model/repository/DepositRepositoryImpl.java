@@ -1,4 +1,4 @@
-package com.listen.test_mvpvm.model.reposity;
+package com.listen.test_mvpvm.model.repository;
 
 import com.listen.test_mvpvm.http.HttpTask;
 import com.listen.test_mvpvm.model.data.MyDepositModel;
@@ -8,11 +8,11 @@ import com.listen.test_mvpvm.model.listener.OnDepositLoadListener;
  * @author listen
  * @desc 我的押金信息-数据中心
  */
-public class DepositReposityImpl implements IDepositReposity {
+public class DepositRepositoryImpl implements IDepositRepository {
 
     private OnDepositLoadListener mOnDepositLoadListener;
 
-    public DepositReposityImpl(OnDepositLoadListener onDepositLoadListener) {
+    public DepositRepositoryImpl(OnDepositLoadListener onDepositLoadListener) {
         mOnDepositLoadListener = onDepositLoadListener;
     }
 

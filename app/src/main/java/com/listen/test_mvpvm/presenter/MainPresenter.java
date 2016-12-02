@@ -4,8 +4,8 @@ import android.view.View;
 
 import com.listen.test_mvpvm.model.data.MyDepositModel;
 import com.listen.test_mvpvm.model.listener.OnDepositLoadListener;
-import com.listen.test_mvpvm.model.reposity.DepositReposityImpl;
-import com.listen.test_mvpvm.model.reposity.IDepositReposity;
+import com.listen.test_mvpvm.model.repository.DepositRepositoryImpl;
+import com.listen.test_mvpvm.model.repository.IDepositRepository;
 import com.listen.test_mvpvm.model.viewmodel.MyDepositAuthViewModel;
 import com.listen.test_mvpvm.model.viewmodel.MyDepositNoPayViewModel;
 import com.listen.test_mvpvm.model.viewmodel.MyDepositPayViewModel;
@@ -18,17 +18,17 @@ import com.listen.test_mvpvm.view.IMainView;
 public class MainPresenter implements IMainPresenter, OnDepositLoadListener {
 
     private IMainView mIMainView;
-    private IDepositReposity mIDepositReposityImpl;
+    private IDepositRepository mIDepositRepositoryImpl;
     private MyDepositModel mModel;
 
     public MainPresenter(IMainView iMainView) {
         mIMainView = iMainView;
-        mIDepositReposityImpl = new DepositReposityImpl(this);
+        mIDepositRepositoryImpl = new DepositRepositoryImpl(this);
     }
 
     @Override
     public void requestData() {
-        mIDepositReposityImpl.getDepositInfo();
+        mIDepositRepositoryImpl.getDepositInfo();
     }
 
     @Override

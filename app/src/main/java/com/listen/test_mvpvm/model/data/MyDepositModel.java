@@ -18,12 +18,13 @@ public class MyDepositModel {
         return "1".equals(isAuth);
     }
 
+
     public static MyDepositModel mock() {
         MyDepositModel model = new MyDepositModel();
         model.moneyPaied = "200.00";
         model.moneyNeed = "300.00";
-        model.isDepositPay = "0";
-        model.isAuth = "1";
+        model.isDepositPay = "1";
+        model.isAuth = "0";
         return model;
     }
 
