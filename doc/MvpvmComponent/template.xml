@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="8"
+    name="MvpvmComponent"
+    minApi="7"
+    minBuildApi="14"
+    description="Creates mvpvm components">
+
+    <category value="Activity" />
+    <formfactor value="Mobile" />
+
+    <parameter
+        id="activityClass"
+        name="Component Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${layoutToActivity(activityLayoutName)}"
+        default="Mvpvm"
+        help="The name of the component" />
+
+    <parameter
+        id="activityLayoutName"
+        name="Layout Name"
+        type="string"
+        constraints="layout|unique|nonempty"
+        suggest="${activityToLayout(activityClass)}"
+        default="activity_mvp"
+        help="The name of the layout" />
+
+    <parameter
+        id="isLauncher"
+        name="Launcher Activity"
+        type="boolean"
+        default="false"
+        help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher" />
+    
+    <parameter
+        id="packageName"
+        name="Package name"
+        type="string"
+        constraints="package"
+        suggest="com.listen.test_mvpvm"
+        default="com.listen.test_mvpvm" />
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
